@@ -3,8 +3,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-		<link type="text/css" rel="stylesheet" href="css/frame.css"/>
-		<link type="text/css" rel="stylesheet" href="css/foo.css"/> 
+		<link type="text/css" rel="stylesheet" href="../css/frame.css"/>
+		<link type="text/css" rel="stylesheet" href="../css/foo.css"/> 
 		<title>ServiceTaxi</title>
 	</head>
 	<body id="corpo">
@@ -18,7 +18,7 @@
 					<div id="info"><%@ include file="/info.jsp" %></div> 
 				</div>
 	
-	      		<div id="sub-conteudo"><jsp:include page="/index.jsp"/></div> 
+	      		<div id="sub-conteudo"><jsp:include page="conteudo.jsp"/></div> 
 	      		
 				<div id="direita"> 
 					<div id="top-filme"><%@ include file="/topFilme.jsp" %></div>
