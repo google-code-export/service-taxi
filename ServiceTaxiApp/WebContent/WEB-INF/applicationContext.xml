@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+
+  <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	<property name="jndiName">
+	  <value>java:comp/env/jdbc/serviceTaxi</value>
+	</property>
+  </bean>
+  
+ 
+  
+  <!-- Hibernate SessionFactory -->
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate.LocalSessionFactoryBean">
+    <property name="dataSource">
+      <ref local="dataSource"/>
+    </property>
+  </bean>
+  
+  <!-- DAO -->
+  <bean id="jdbcDAO" class="com.br.servicetaxi.dao.impl.JdbcDAOImpl">
+	<property name="dataSource">
+	  <ref local="dataSource" />
+	</property>
+	<property name="xmlFile">
+	  <value>/sqlstatements.xml</value>
+	</property>
+  </bean>
+  
+  <!--  exemplos -->
+  <bean id="arquivoDAO" class="br.com.evolz.fortaxi.dao.hibernate.ArquivoDAO">
+		<property name="sessionFactory"><ref local="sessionFactory"/></property>
+  </bean>
+  
+   
+  
+  
+   <!--  exemplos -->
+  <!-- Services -->
+  
+  <bean id="arquivoServiceTarget" class="br.com.evolz.fortaxi.service.impl.ArquivoServiceImpl">
+	<property name="arquivoDAO">
+	  <ref local="arquivoDAO" />
+	</property>
+  </bean>
+  
+
+  
+  
+    
+ </beans>
+   
+ 

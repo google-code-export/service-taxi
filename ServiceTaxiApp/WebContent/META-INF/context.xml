@@ -1,0 +1,17 @@
+<Context path="/ServiceTaxiApp" reloadable="true">
+	
+<Resource 
+      url="jdbc:postgresql://localhost:5432/serviceTaxi" 
+      username="postgres" 
+      password="root"
+      name="jdbc/serviceTaxi"
+      maxIdle="1"
+      maxActive="1"
+      maxWait="-1"
+	 removeAbandoned="true"
+	 removeAbandonedTimeout="300"
+	 logAbandoned="true"
+     type="javax.sql.DataSource"
+     driverClassName="org.postgresql.Driver"/>
+		
+</Context>
