@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	
+  <appender name="edi" class="org.apache.log4j.RollingFileAppender">
+	<param name="File" value="${catalina.home}/logs/edi.log" />
+	<param name="Append" value="false" />
+	<param name="MaxFileSize" value="10000KB" />
+	<param name="MaxBackupIndex" value="5" />
+	
+	<!--    
+	<filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="ERROR" />
+      <param name="LevelMax" value="error" />
+      <param name="AcceptOnMatch" value="true" />
+    </filter>
+    <filter class="org.apache.log4j.varia.LevelMatchFilter">
+      <param name="LevelToMatch" value="error" />
+      <param name="AcceptOnMatch" value="true"/>
+    </filter>
+    <filter class="org.apache.log4j.varia.DenyAllFilter" />
+    -->
+    <layout class="org.apache.log4j.PatternLayout">
+	  <param name="ConversionPattern" value="%p - %C{1}.%M(%L) | %m%n" />
+	</layout>
+  </appender>
+  
+  <appender name="integrator" class="org.apache.log4j.RollingFileAppender">
+	<param name="File" value="${catalina.home}/logs/integrator.log" />
+	<param name="Append" value="false" />
+	<param name="MaxFileSize" value="10000KB" />
+	<param name="MaxBackupIndex" value="5" />
+	<!--  
+	<filter class="org.apache.log4j.varia.LevelRangeFilter"> 
+      <param name="LevelMin" value="INFO" />
+      <param name="LevelMax" value="info" />
+      <param name="AcceptOnMatch" value="true"/>
+    </filter>
+    <filter class="org.apache.log4j.varia.LevelMatchFilter">
+      <param name="LevelToMatch" value="info" />
+      <param name="AcceptOnMatch" value="true"/>
+    </filter>
+    <filter class="org.apache.log4j.varia.DenyAllFilter" />
+    -->
+    <layout class="org.apache.log4j.PatternLayout">
+	  <param name="ConversionPattern" value="%-2d{dd/MM/yy HH:mm} %m%n" />
+	</layout>
+  </appender>
+  
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%p - %C{1}.%M(%L) | %m%n"/>
+    </layout>
+  </appender>
+
+	<appender name="mail" class="org.apache.log4j.net.SMTPAppender">
+		<param name="Threshold" value="ERROR" />
+		<param name="To" value="heltonleite@gmail.com" />
+		<param name="From" value="heltonleite@gmail.com" />
+		<param name="Subject" value="Erro no Edi Produção" />
+		<param name="SMTPHost" value="gmail.com" />
+		<param name="BufferSize" value="10" />
+		<layout class="org.apache.log4j.HTMLLayout">
+		</layout>
+	</appender>
+  
+  <root> 	
+	<level value="ERROR" />
+	<!--  <appender-ref ref="mail" /> -->
+    <appender-ref ref="integrator" />
+    <appender-ref ref="CONSOLE" />
+	<appender-ref ref="edi" />
+  </root>
+  
+</log4j:configuration>

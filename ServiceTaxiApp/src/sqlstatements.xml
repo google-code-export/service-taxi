@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlfile>
+
+<sql id="CanalPadrao"> <![CDATA[
+	SELECT IS_CNL as "objectID" FROM T_CFS
+]]>
+</sql>
+
+</sqlfile>
