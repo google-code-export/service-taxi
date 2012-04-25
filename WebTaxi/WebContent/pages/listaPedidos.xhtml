@@ -8,12 +8,39 @@
 	<h:head>  
   
     </h:head>  
+    
+    <p:layoutUnit position="center">  
+        Center  
+    
       
     <h:body>  
       
-        <p:spinner />  
+        <h:form id="form">  
+    <h:outputText id="txt_count" value="#{pedidoBean.count}" />  
+    
+    <p:dataTable id="tabela"  value="#{pedidoBean.listaPedidos}" var="ped" emptyMessage="Nenhum Registro Encontrado.">
+    
+    <p:column>
+    <h:outputLabel value="#{ped.idPedido}" />
+    </p:column>
+    
+    <p:column>
+    <h:outputLabel value="#{ped.localizacao}" />
+    </p:column>
+    
+    
+    
+    
+    
+    
+    
+    </p:dataTable>
+      
+    <p:poll interval="10"   
+            listener="#{pedidoBean.listaPedidos}" update="tabela" />  
+</h:form>
           
     </h:body>  
 	
-	
+	</p:layoutUnit>
 </html>
