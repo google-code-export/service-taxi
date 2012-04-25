@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+      
+<h:head>
+
+<style>
+.ui-widget,
+.ui-widget .ui-widget {
+font-size: 11px !important;
+}
+</style> 
+
+
+</h:head>      
+     <h:form>  
+  
+    <p:growl id="messages"/>  
+  
+    <p:menubar>  
+        <p:submenu label="Cadastros" >  
+            <p:menuitem value="Atendentes" url="#" />  
+            <p:separator />  
+        </p:submenu>  
+  
+        <p:submenu label="Taxistas" >  
+            <p:menuitem value="Undo" url="#" />  
+            <p:menuitem value="Redo" url="#" />  
+        </p:submenu>  
+  
+        <p:submenu label="Pedidos" >  
+            <p:menuitem value="Contents" url="#" />   
+        </p:submenu>  
+  
+        <p:submenu label="Relatórios" >  
+ 
+         <p:menuitem value="Delete" actionListener="#{buttonBean.delete}"  update="messages" ajax="false"/>  
+ 
+        </p:submenu>  
+  
+        <p:menuitem value="Sair" url="http://www.primefaces.org"  />  
+    </p:menubar>  
+  
+</h:form> 
+      
+</html>      
