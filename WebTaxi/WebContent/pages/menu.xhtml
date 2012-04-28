@@ -10,7 +10,7 @@
 <style>
 .ui-widget,
 .ui-widget .ui-widget {
-font-size: 11px !important;
+font-size: 14px !important;
 }
 </style> 
 
@@ -22,22 +22,22 @@ font-size: 11px !important;
   
     <p:menubar>  
         <p:submenu label="Cadastros" >  
-            <p:menuitem value="Atendentes" url="#" />  
+            <p:menuitem value="Atendentes" url="/pages/atendenteIndex.jsf"  />  
             <p:separator />  
         </p:submenu>  
   
         <p:submenu label="Taxistas" >  
-            <p:menuitem value="Undo" url="#" />  
-            <p:menuitem value="Redo" url="#" />  
+            <p:menuitem value="Cadastro de Taxistas" url="#" />  
+            <p:menuitem value="Listagem de Taxistas" url="#" />  
         </p:submenu>  
   
         <p:submenu label="Pedidos" >  
-            <p:menuitem value="Contents" url="#" />   
+            <p:menuitem value="Lista de Pedidos" url="/pages/listaPedidos.jsf" />   
         </p:submenu>  
   
         <p:submenu label="Relatórios" >  
  
-         <p:menuitem value="Delete" actionListener="#{buttonBean.delete}"  update="messages" ajax="false"/>  
+         <p:menuitem value="Relatório de Pedidos" actionListener="#{buttonBean.delete}"  update="messages" ajax="false"/>  
  
         </p:submenu>  
   

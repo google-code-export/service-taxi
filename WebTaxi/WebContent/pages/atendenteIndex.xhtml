@@ -10,17 +10,12 @@
   
     </h:head>  
     
-	
-
-	
-
-	
 	 <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
                 <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>PrimeFaces - ShowCase</title>
+                <title>Atendentes</title>
             </f:facet>
 
             <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
@@ -48,7 +43,7 @@
                     <ui:include src="/pages/menu.xhtml"></ui:include>  
                 </p:layoutUnit>
 
-                <p:layoutUnit id="bottom" position="south" size="60">
+                <p:layoutUnit id="bottom" position="south" size="20">
                    
                 </p:layoutUnit>
 
@@ -79,29 +74,38 @@
                 <p:layoutUnit id="center" position="center">
                     <h:form id="form">  
     
-    <p:dataTable id="tabela"  value="#{pedidoBean.listaPedidos}" var="ped" emptyMessage="Nenhum Registro Encontrado.">
+    				<p:panelGrid columns="2" style="margin-left:280px;margin-top:120px;">  
+				    <f:facet name="header">  
+				        Cadastro de Atendente  
+				    </f:facet>  
+				  
+				    <h:outputLabel for="matricula" value="Matrícula: *" />  
+				    <p:inputText id="matricula" value="" label="Matrícula" />  
+				  
+				    <h:outputLabel for="nome" value="Nome: *" />  
+				    <p:inputText id="nome" value="" required="true" label="Nome"/>  
+				    
+				    <h:outputLabel for="cpf" value="Cpf: *" />  
+				    <p:inputText id="cpf" value="" required="true" label="Cpf"/>
+				    
+				    <h:outputLabel for="telefone" value="Telefone: *" />  
+				    <p:inputText id="telefone" value="" required="true" label="Telefone"/> 
+				  
+				  	<f:facet name="footer">  
+				        <p:commandButton type="button" value="Salvar" icon="ui-icon-check" style="margin:0"/>  
+				        <p:commandButton type="button" value="Limpar" icon="ui-icon-check" style="margin:0"/>
+				    </f:facet>
+				  	  
+					</p:panelGrid> 
     
-    <p:column>
-    <h:outputLabel value="#{ped.idPedido}" />
-    </p:column>
-    
-    <p:column>
-    <h:outputLabel value="#{ped.localizacao}" />
-    </p:column>
-    
-    <p:column>
-    <h:outputLabel value="#{ped.complemento}" />
-    </p:column>
-    
-    <p:column>
-    <h:outputLabel value="#{ped.status}" />
-    </p:column>
-       
-    </p:dataTable>
-      
-    <p:poll interval="10"   
-            listener="#{pedidoBean.listaPedidos}" update="tabela" />  
-</h:form>
+    				<p:panelGrid columns="2" style="margin-left:100px"> 
+    				
+				    
+				   
+				  
+				    
+					</p:panelGrid>
+					</h:form>
 
 
                 </p:layoutUnit>
