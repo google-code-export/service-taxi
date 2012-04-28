@@ -76,6 +76,20 @@ public class ConnectionFactory {
 
 		closeConnection();  
 	}  
+	
+	public ResultSet executeSql(String sql) throws SQLException, Exception{
+		
+		PreparedStatement pstm = getConnection().prepareStatement(sql);
+		
+		ResultSet rs = pstm.executeQuery();
+		
+		if(rs != null)
+			return rs;
+		else
+			return null;
+		
+		
+	}
 
 
 } 
